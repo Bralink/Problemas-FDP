@@ -1,69 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <conio.h>
-void SUMA(){
-    int i;
-    int grado_prim_poli, grado_segun_poli, max_grad;
-    int aux_var;
-    printf("Ingrese el grado del primer polinomio: ");
-    scanf("%i", &grado_prim_poli);
-
-            printf("Ingrese el grado del segundo polinomio: ");
-            scanf("%i", &grado_segun_poli);
-
-                    if(grado_prim_poli > grado_segun_poli)
-                {
-                    max_grad = grado_prim_poli;
-                }
-                    else
-                {
-                    max_grad = grado_segun_poli;
-                }
-
-                    /* ---------------------------------- */
-                    int matriz_coef[max_grad];
-                    /* ---------------------------------- */
-
-                    for(i = 0; i < max_grad; i++)
-                    {
-                        matriz_coef[i] = 0;
-                    }
-
-                printf("\n\n----------------------------\n");
-                printf("PARA EL PRIMER POLINOMIO\n");
-                printf("----------------------------\n");
-
-                for(i = 0; i < grado_prim_poli + 1; i++)
-                {
-                    printf("Valor del coeficiente grado %i: ", i);
-                    scanf("%i", &matriz_coef[i]);
-                }
-
-                printf("\n\n----------------------------\n");
-                printf("PARA EL SEGUNDO POLINOMIO\n");
-                printf("----------------------------\n");
-
-                for(i = 0; i < grado_segun_poli + 1; i++)
-                {
-                    printf("Valor del coeficiente grado %i: ", i);
-                    scanf("%i", &aux_var);
-                        matriz_coef[i] = matriz_coef[i] + aux_var;
-                }
-
-                printf("\n\n----------------------------\n");
-                printf("RESULTADOS\n");
-                printf("----------------------------\n");
-
-                for(i = max_grad; i >= 0; --i)
-                {
-                    if(i == 0)
-                    {
-                        printf("%i",  matriz_coef[i]);
-                    }
-                    else if(i == 1)
-                    {
-                         printf("%ix + ",  matriz_coef[i]);
+-);
                     }
                     else
                     {
@@ -242,43 +177,7 @@ void DIVISION();
 void DIVISION ()
 {
     int grado_prim_poli, grado_segun_poli;
-	int i=0, x=0, pos=0, ter=0, c=0;
-	int grado1, grado2; 
-	int a;
-    printf("Programa para dividir un polinomio entre un monomio\n\n");
-  
-    //Ingresamos los grados de los 2 polinomios
-     printf("\n------------------------------------------------------------------------------\n");
-    printf("Ingrese el grado del primer polinomio: ");
-    scanf("%i", &grado_prim_poli);
-
-    printf("Ingrese el grado del monomio: ");
-    scanf("%i", &grado_segun_poli);
-     printf("------------------------------------------------------------------------------\n");
-    
-	//Creamos los polinomios de grado + 1
-    float polinomio1[grado_prim_poli + 1];
-	float polinomio2;
- 		 
-    	//Polinomio 1	
-     for( i = 0; i < grado_prim_poli + 1; i++) {
-        printf("Valor del coeficiente grado %i para el primer polinomio: ", i);
-        scanf("%f", &polinomio1[i]);
-    }
-     printf("---------------\n");
-    	//Polinomio 2 
-  	 
-        printf("Valor del coeficiente grado %i para el monomio: ", grado_segun_poli);
-        scanf("%f", &polinomio2);
-    
-    printf("---------------\n");
-
- 
-    //Mostramos polinomio1:
-    printf("(");
-    for (x = grado_prim_poli; x >= 0; x--){
-     //Dibujamos los x^2 o mayor
-     if (x > 1)
+if (x > 1)
         printf(" %dx^%d ", polinomio1[x], x );
      //Si es 1 dibujamos solamente "x"
      else if (x == 1) printf(" %dx ", polinomio1[x] );
@@ -291,79 +190,6 @@ void DIVISION ()
     printf(") / (");
  
     //Mostramos polinomio2
-    
-        printf(" %dx^%d ", polinomio2, grado_segun_poli );
-     
-    
-    printf(")");
- 
-    //Termino mayor del polinomio Resultante es  x^(grado1+grado2)
-    a=fabs(grado_prim_poli - grado_segun_poli);
-    float polinomioResultante [a];
- 
-    //Iniciamos como 0 los valores del polinomio resultante
-    for (c = 0; c < grado_prim_poli + 1; c++)
-        polinomioResultante[c] = 0;
- 
-    //Por cada termino del polinomio1
-    for (pos = 0; pos < grado_prim_poli + 1; pos++)
-    //Vamos a multiplicar cada termino del polinomio2
-    
-            //pos + ter = x ^ (pos + ter)
-            polinomioResultante[pos - ter] = polinomio1[pos] / polinomio2;
-        
- 
- 
-    //Mostramos el Polinomio Resultante:
-    printf("\n\nPolinomio Resultante: \n\n");
-    printf("------------------------------------------------------------------------------\n");
-    for (x = grado_prim_poli; x >= 0; x--){
-     
-        printf(" %dx^%d ", polinomioResultante[x], x - grado_segun_poli );
-    
-     if (x != 0)
-     printf(" + ");
-    }
- 
-    return 0;
-}
-void SALIR(){
-    printf("PROGRAMA FINALIZADO\n");
-}
-void MENU(){
-        int opc;
-        do{
-            printf("Menu de opciones\n\n");
-            printf("1. SUMA\n");
-            printf("2. RESTA\n");
-            printf("3. MULTIPLICACION\n");
-            printf ("4. Division\n");
-            printf("5. SALIR\n");
-            printf("SELECCIONA UNA OPCION\n");
-            scanf("%d", &opc);
-            switch(opc){
-                case 1:
-                    SUMA();
-                break;
-                case 2:
-                    RESTA();
-                break;
-                case 3:
-                    MULTIPLICACION();
-                break;
-                case 4:
-                    DIVISION();
-                break;
-                case 5:
-                    SALIR();
-                default:
-                    printf("OPCION INCORRECTA\n");
-            }
-        }while(opc!=4);
-}
-    //fuera del struct//
-int main(){
-    MENU();
-    system("PAUSE");
-    return 0;
+    ("PAUSE");
+ 0; 
 }
