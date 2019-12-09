@@ -6,6 +6,7 @@
 	void RESTA();
 	void MULTIPLICACION();
 	void SALIR();
+        void DIVISION();
 //-------------------------------------------
 int cent, op; 
 //MAIN PRINCIPAL DEL PROGRAMA
@@ -72,6 +73,7 @@ int main(){
 	                  	printf("------------------------------------------------------------\n");
 		  				printf("Dividir polinomio entre monomio.");   
 						printf("\n------------------------------------------------------------\n");   
+				                DIVISION ();
 						system("pause");
 					break;
 					case 6:
@@ -324,7 +326,103 @@ int main(){
 		     		printf(" + ");
 		    }
 		}
-		//FUNCION SALIR
+
+
+                //FUNCIÓN DIVIDIR 
+
+
+void DIVISION ()
+{
+    int grado_prim_poli, grado_segun_poli;
+	int i=0, x=0, pos=0, ter=0, c=0;
+	int grado1, grado2; 
+	int a;
+    printf("Programa para dividir un polinomio entre un monomio\n\n");
+  
+    //Ingresamos los grados de los 2 polinomios
+     printf("\n------------------------------------------------------------------------------\n");
+    printf("Ingrese el grado del primer polinomio: ");
+    scanf("%i", &grado_prim_poli);
+
+    printf("Ingrese el grado del monomio: ");
+    scanf("%i", &grado_segun_poli);
+     printf("------------------------------------------------------------------------------\n");
+    
+	//Creamos los polinomios de grado + 1
+    float polinomio1[grado_prim_poli + 1];
+	float polinomio2;
+ 		 
+    	//Polinomio 1	
+     for( i = 0; i < grado_prim_poli + 1; i++) {
+        printf("Valor del coeficiente grado %i para el primer polinomio: ", i);
+        scanf("%f", &polinomio1[i]);
+    }
+     printf("---------------\n");
+    	//Polinomio 2 
+  	 
+        printf("Valor del coeficiente grado %i para el monomio: ", grado_segun_poli);
+        scanf("%f", &polinomio2);
+    
+    printf("---------------\n");
+
+ 
+    //Mostramos polinomio1:
+    printf("(");
+    for (x = grado_prim_poli; x >= 0; x--){
+     //Dibujamos los x^2 o mayor
+     if (x > 1)
+        printf(" %dx^%d ", polinomio1[x], x );
+     //Si es 1 dibujamos solamente "x"
+     else if (x == 1) printf(" %dx ", polinomio1[x] );
+     //Y si es 0 no dibujamos la "x"
+     else if (x == 0) printf(" %d ", polinomio1[x] );
+     //Para que no se dibuje un + luego del último termino
+     if (x != 0)
+     printf(" + ");
+    }
+    printf(") / (");
+ 
+    //Mostramos polinomio2
+    
+        printf(" %dx^%d ", polinomio2, grado_segun_poli );
+     
+    
+    printf(")");
+ 
+    //Termino mayor del polinomio Resultante es  x^(grado1+grado2)
+    a=fabs(grado_prim_poli - grado_segun_poli);
+    float polinomioResultante [a];
+ 
+    //Iniciamos como 0 los valores del polinomio resultante
+    for (c = 0; c < grado_prim_poli + 1; c++)
+        polinomioResultante[c] = 0;
+ 
+    //Por cada termino del polinomio1
+    for (pos = 0; pos < grado_prim_poli + 1; pos++)
+    //Vamos a multiplicar cada termino del polinomio2
+    
+            //pos + ter = x ^ (pos + ter)
+            polinomioResultante[pos - ter] = polinomio1[pos] / polinomio2;
+        
+ 
+ 
+    //Mostramos el Polinomio Resultante:
+    printf("\n\nPolinomio Resultante: \n\n");
+    printf("------------------------------------------------------------------------------\n");
+    for (x = grado_prim_poli; x >= 0; x--){
+     
+        printf(" %dx^%d ", polinomioResultante[x], x - grado_segun_poli );
+    
+     if (x != 0)
+     printf(" + ");
+    }
+ 
+    return 0;
+}	
+//FUNCIÓN SALIR
+
+
+
 		void SALIR(){
     	printf("------------------------------------------------------------\n");
 		printf("LA EJECUCION HA LLEGADO A SU FINAL\n");   
