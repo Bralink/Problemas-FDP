@@ -18,8 +18,8 @@ int main(){
 }
 
 //DEFINICION DE FUNCIONES
-		//FUNCION MENU
-		void MENU(){			//ELABORADO: GIOVANNI CHAVES FLORES	Y DIEGO SANTIAGO GUTIERREZ	INICIO: 25/11/2019-FINAL: 8/12/2019 		TIEMPO: 11:00-11:30 (a estas horas era posible trabajar)
+		//FUNCION 
+		void MENU(){			//ELABORADO: GIOVANNI CHAVES FLORES	DIEGO SANTIAGO GUTIERREZ 	INICIO: 25/11/2019-FINAL: 8/12/2019 		TIEMPO: 11:00-11:30 (a estas horas era posible trabajar)
 	     	 do{
 	      		printf("\n--------------------MENU DE OPCIONES-------------------------\n");
 	            printf("Bienvenido al menu de operaciones de polinomios, elige una opcion\n");
@@ -331,7 +331,7 @@ int main(){
                 //FUNCIÓN DIVIDIR 
 
 
-void DIVISION ()
+void DIVISION () //Elaborado por : Piña Félix Emilio
 {
     int grado_prim_poli, grado_segun_poli;
 	int i=0, x=0, pos=0, ter=0, c=0;
